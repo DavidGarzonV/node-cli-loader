@@ -1,0 +1,38 @@
+{
+  "name": "cli-loader",
+  "version": "1.0.0",
+  "description": "Plugin to create animated loaders in the terminal",
+  "main": "index.js",
+  "engines": {
+    "node": ">= 18.20.3",
+    "npm": ">= 10.7.0"
+  },
+  "scripts": {
+    "tsc": "tsc -p .",
+    "build": "npm run tsc"
+  },
+  "author": {
+    "name": "David Garzón Vélez",
+    "email": "dgv241198@gmail.com"
+  },
+  "keywords": [
+    "cli",
+    "plugin",
+    "loading",
+    "loader",
+    "spinner"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/DavidGarzonV/cli-loader"
+  },
+  "devDependencies": {
+    "ts-node": "10.9.2",
+    "typescript": "5.4.5"
+  },
+  "dependencies": {
+    "kleur": "4.1.5",
+    "signal-exit": "4.1.0"
+  },
+  "license": "ISC"
+}
