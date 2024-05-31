@@ -123,13 +123,13 @@ export default class Loader {
 	/**
 	 * Creates a new loader and adds it to the list of loaders
 	 * @param description The description to show next to the spinner
-	 * @param options Options for the loader
-	 * @param options.spinname The name of the spinner to use
-	 * @param options.doneMessage The message to show when the loader is done
+	 * @param [options] Options for the loader
+	 * @param [options].[spinname] The name of the spinner to use
+	 * @param [options].[doneMessage] The message to show when the loader is done
 	 */
 	public static create(
 		description: string = '',
-		options?: { spinname?: Spinners, doneMessage: string }
+		options?: { spinname?: Spinners, doneMessage?: string }
 	) {
 		return new Loader().start(description, options?.spinname, options?.doneMessage);
 	}
