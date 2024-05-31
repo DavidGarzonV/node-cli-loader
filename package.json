@@ -1,6 +1,6 @@
 {
-  "name": "cli-loader",
-  "version": "1.0.1",
+  "name": "node-cli-loader",
+  "version": "1.1.0",
   "description": "Plugin to create animated loaders in the terminal",
   "main": "dist/index.js",
   "engines": {
