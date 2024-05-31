@@ -24,6 +24,9 @@
     "skipLibCheck": true,
     "experimentalDecorators": true,
     "resolveJsonModule": true,
+    "allowJs": true,
+    "declaration": true,
+    "declarationMap": true
   },
   "include": [
     "src/**/**.ts",
