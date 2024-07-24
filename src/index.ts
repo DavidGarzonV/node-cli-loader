@@ -3,7 +3,7 @@ import logUpdate, { LogUpdateRender } from './resources/log-update';
 import { Spinner, Spinners } from './types';
 import spinners from './spinners.json';
 
-const sringIcons = {
+const stringIcons = {
 	main: {
 		tick: '✔',
 		cross: '✖',
@@ -14,7 +14,7 @@ const sringIcons = {
 	}
 };
 
-const icons = process.platform === 'win32' ? sringIcons.win : sringIcons.main;	
+const icons = process.platform === 'win32' ? stringIcons.win : stringIcons.main;	
 
 export default class Loader {
 	private static appLoaders: Set<Loader> = new Set();
