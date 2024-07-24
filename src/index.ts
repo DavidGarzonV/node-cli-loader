@@ -29,9 +29,9 @@ export default class Loader {
 	 * @param index Variable to control the frames iteration
 	 * @param description The description to show next to the spinner
 	 */
-	private renderSpinner(spinner: Spinner, index: number, description: string) {
+	private renderSpinner(spinner: Spinner, index: number, description?: string) {
 		const { frames } = spinner;
-		const message = `${description}...`;
+		const message = `${description ?? 'Loading'}...`;
 
 		this.logUpdate = logUpdate(frames[(index = ++index % frames.length)] + ' ' +`${message}`);
 		this.loaderMessage = message;
@@ -53,7 +53,7 @@ export default class Loader {
 	 * @param [doneMessage] The message to show when the loader is done
 	 * @param [timeout] The time in milliseconds to wait before stopping the loader
 	 */
-	private start(description: string = '', spinname?: Spinners, doneMessage?: string, timeout?: number): Loader {
+	private start(description?: string, spinname?: Spinners, doneMessage?: string, timeout?: number): Loader {
 		this.stopLastLoader();
 
 		const name = spinname ?? 'dots';
@@ -137,14 +137,14 @@ export default class Loader {
 
 	/**
 	 * Creates a new loader and adds it to the list of loaders
-	 * @param description The description to show next to the spinner
+	 * @param [description] The description to show next to the spinner
 	 * @param [options] Options for the loader
 	 * @param [options].[spinname] The name of the spinner to use
 	 * @param [options].[doneMessage] The message to show when the loader is done
 	 * @param [options].[timeout] The time in milliseconds to wait before stopping the loader
 	 */
 	public static create(
-		description: string = '',
+		description?: string,
 		options?: { spinname?: Spinners, doneMessage?: string, timeout?: number }
 	) {
 		return new Loader().start(description, options?.spinname, options?.doneMessage, options?.timeout);
