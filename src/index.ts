@@ -1,6 +1,6 @@
 import { green, red } from 'kleur';
 import logUpdate, { LogUpdateRender } from './resources/log-update';
-import { Spinner, Spinners } from './types';
+import { LoaderOptions, Spinner } from './types';
 import spinners from './spinners.json';
 
 const stringIcons = {
@@ -53,7 +53,8 @@ export default class Loader {
 	 * @param [doneMessage] The message to show when the loader is done
 	 * @param [timeout] The time in milliseconds to wait before stopping the loader
 	 */
-	private start(description?: string, spinname?: Spinners, doneMessage?: string, timeout?: number): Loader {
+	private start(description?: string, options?: LoaderOptions): Loader {
+		const { spinname, doneMessage, timeout } = options ?? {};
 		this.stopLastLoader();
 
 		const name = spinname ?? 'dots';
@@ -145,8 +146,8 @@ export default class Loader {
 	 */
 	public static create(
 		description?: string,
-		options?: { spinname?: Spinners, doneMessage?: string, timeout?: number }
+		options?: LoaderOptions
 	) {
-		return new Loader().start(description, options?.spinname, options?.doneMessage, options?.timeout);
+		return new Loader().start(description, options);
 	}
 }

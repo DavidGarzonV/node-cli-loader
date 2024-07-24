@@ -90,3 +90,9 @@ export type Spinner = {
 	frames: string[];
 	interval: number;
 };
+
+export type LoaderOptions = {
+	spinname?: Spinners;
+	doneMessage?: string;
+	timeout?: number;
+};

@@ -18,22 +18,29 @@ Loader.create()
 
 // Custom loader (Start loading...)
 Loader.create('Start loading', { 
-	spinname: 'dots',
-	doneMessage: 'Loading finished!'
+  spinname: 'dots',
+  doneMessage: 'Loading finished!'
 })
 ```
 
-**Options object:**
+**Arguments:**
 
 |name|DESCRIPTION|VALUE TYPE|EXAMPLE|DEFAULT|
 |---|---|---|---|---|
-|`spinname`|Name of the spinner to be displayed|`string`| `dots`, `sand`| `dots`|
-|`doneMessage`|Message to change the loader when finishes|`string`| 'Loading finish!' | |
-|`timeout`|The time in milliseconds to wait before stopping the loader|`string`| 1000 | |
+|`description`|Message to show when loading and rendering|`string`| `Requesting data`| `Loading`|
+|`options`|Custom options for the loader|`object`| `LoaderOptions` | `{}` |
+
+**Options (`LoaderOptions`):**
+
+|name|DESCRIPTION|VALUE TYPE|EXAMPLE|DEFAULT|
+|---|---|---|---|---|
+|`spinname`|Name of the spinner to be displayed|`string`| `'dots'`, `'sand'`| `'dots'`|
+|`doneMessage`|Message to change the loader when finishes|`string`| `'Loading finish!'` | |
+|`timeout`|The time in milliseconds to wait before stopping the loader|`string`| `1000` | |
 
 [See all the spinners.](src/spinners.json)
 
-### Stop the the loader an mark it as done
+### Stop the loader and mark it as done.
 
 ```js {"id":"01J3JMASMR4KAQ6P4TFE1PK51N"}
 const loader = Loader.create()
