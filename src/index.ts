@@ -51,8 +51,9 @@ export default class Loader {
 	 * @param [description] The description to show next to the spinner
 	 * @param [spinname] Spinner name
 	 * @param [doneMessage] The message to show when the loader is done
+	 * @param [timeout] The time in milliseconds to wait before stopping the loader
 	 */
-	private start(description: string = '', spinname?: Spinners, doneMessage?: string): Loader {
+	private start(description: string = '', spinname?: Spinners, doneMessage?: string, timeout?: number): Loader {
 		this.stopLastLoader();
 
 		const name = spinname ?? 'dots';
@@ -69,6 +70,13 @@ export default class Loader {
 		}
 
 		Loader.appLoaders.add(this);
+
+		if (timeout !== undefined) {
+			setTimeout(() => {
+				this.done();
+			}, timeout);
+		}
+
 		return this;
 	}
 
@@ -86,6 +94,13 @@ export default class Loader {
 			this.timer = null;
 		}
 		Loader.appLoaders.delete(this);
+	}
+
+	/**
+	 * Persist the loader and mark it as finished
+	 */
+	public finish() {
+		this.finishLoader();
 	}
 
 	/**
@@ -126,11 +141,12 @@ export default class Loader {
 	 * @param [options] Options for the loader
 	 * @param [options].[spinname] The name of the spinner to use
 	 * @param [options].[doneMessage] The message to show when the loader is done
+	 * @param [options].[timeout] The time in milliseconds to wait before stopping the loader
 	 */
 	public static create(
 		description: string = '',
-		options?: { spinname?: Spinners, doneMessage?: string }
+		options?: { spinname?: Spinners, doneMessage?: string, timeout?: number }
 	) {
-		return new Loader().start(description, options?.spinname, options?.doneMessage);
+		return new Loader().start(description, options?.spinname, options?.doneMessage, options?.timeout);
 	}
 }
